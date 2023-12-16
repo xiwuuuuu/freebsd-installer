@@ -1,4 +1,5 @@
-pkg install -y xorg sddm kde5 plasma5-sddm-kcm wqy-fonts xdg-user-dirs drm-kmod nvidia-hybrid-graphics-390  net-mgmt/networkmgr sudo nano vim firefox wine  sysutils/fusefs-ntfs gcc gammy 
+sh update-freebsd.sh
+pkg install -y wayland sddm kde5 plasma5-sddm-kcm wqy-fonts xdg-user-dirs drm-kmod nvidia-hybrid-graphics-390  net-mgmt/networkmgr sudo nano vim firefox wine  sysutils/fusefs-ntfs gcc gammy 
 sysrc kld_list+="fusefs"
 sysrc dbus_enable="YES"
 sysrc sddm_enable="YES"
@@ -13,7 +14,7 @@ sysrc linux_enable="YES"
 sysrc kld_list+="linux linux64"
 kldload linux64
 service linux start
-pkg install emulators/linux-c7 dbus
+pkg install -y emulators/linux-c7 dbus
 dbus-uuidgen > /compat/linux/etc/machine-id
 pkg install -y debootstrap
 debootstrap jammy /compat/ubuntu http://mirrors.ustc.edu.cn/ubuntu/
